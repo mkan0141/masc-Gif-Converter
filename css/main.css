@@ -1,0 +1,24 @@
+@font-face{
+    font-family: "mini-wakuwaku";
+    src: url("./../font/mini-wakuwaku/mini-wakuwaku.otf") format("opentype"),
+         url("./../font/mini-wakuwaku/mini-wakuwaku-maru.otf") format("opentype")
+}
+
+body{
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+canvas{
+    text-align: center;
+}
+
+#view{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#btn{
+    display: block;
+    margin: 50px auto;
+}
