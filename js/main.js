@@ -29,8 +29,7 @@ $(document).ready(function(){
         [
             "images/tznk_zzz/1.png",
             "images/tznk_zzz/2.png",
-            "images/tznk_zzz/3のコピー.png",
-            "images/tznk_zzz/3のコピー.png",
+            "images/tznk_zzz/3.png",
         ],
         [
             "images/tznk_mochi/1.png",
@@ -39,23 +38,17 @@ $(document).ready(function(){
             "images/tznk_mochi/4.png",
             "images/tznk_mochi/5.png"
         ],
-        /*
         [
-            "images/fanfic_1.png",
-            "images/fanfic_2.png",
-            "images/fanfic_3.png",
-            "images/fanfic_4.png",
-            "images/fanfic_5.png",
-            "images/fanfic_6.png"
+            "images/krtn_zzz/1.png",
+            "images/krtn_zzz/2.png",
+            "images/krtn_zzz/3.png",
+            "images/krtn_zzz/4.png"
         ],
         [
-            "images/fanfic_1.png",
-            "images/fanfic_2.png",
-            "images/fanfic_3.png",
-            "images/fanfic_4.png",
-            "images/fanfic_5.png",
-            "images/fanfic_6.png"
-        ],*/
+            "images/anz_smile/1.png",
+            "images/anz_smile/3.png",
+            "images/anz_smile/5.png"
+        ]
     ];
     var fontList = [
         "mini-wakuwaku",
@@ -67,7 +60,7 @@ $(document).ready(function(){
     function init(){
         
         document.getElementById("char").value = "エナジードリンク";
-        
+        document.getElementById("btn").disable = "disable";
         /*  フォント、フォントサイズを変更したいよね〜(未実装)
         var fonts = $("#fonts");
         for(var i = 0; i < fontList.length; i++){
@@ -153,6 +146,7 @@ $(document).ready(function(){
                     URL.revokeObjectURL(url);
                 }
                 console.log("correct!!");
+                document.getElementById("btn").disable = "";
             }
             setCtxCount++;
         }
