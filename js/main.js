@@ -65,6 +65,10 @@ $(document).ready(function(){
     
     /*初期化*/
     function init(){
+        
+        document.getElementById("char").value = "エナジードリンク";
+        
+        /*  フォント、フォントサイズを変更したいよね〜(未実装)
         var fonts = $("#fonts");
         for(var i = 0; i < fontList.length; i++){
             fonts.append($("<option>").val(i).text(fontList[i]));
@@ -74,6 +78,7 @@ $(document).ready(function(){
         for(var i = 1; i < 51; i++){
             fontSize.append($("<option>").val(i).text(i));
         }
+        */
     }
     
     /*update*/
@@ -196,6 +201,8 @@ $(document).ready(function(){
     $('#download').click(function(){
          encoder.download("mcac.gif");
     });
+    
+    init();
     canvasRest();
     loadImage();
     
