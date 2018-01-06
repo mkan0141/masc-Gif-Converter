@@ -4,6 +4,11 @@
          url("./../font/mini-wakuwaku/mini-wakuwaku-maru.otf") format("opentype")
 }
 
+label,select{
+    display: block;
+    text-align: center;
+}
+
 body{
     text-align: center;
     background-color: #f0f0f0;
@@ -19,6 +24,11 @@ canvas{
 }
 
 #btn{
+    display: block;
+    margin: 50px auto;
+}
+
+#download{
     display: block;
     margin: 50px auto;
 }
