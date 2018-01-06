@@ -2,7 +2,7 @@ $(document).ready(function(){
     var debug = 0;
     var encoder = new GIFEncoder();
     
-
+    var isChangeImage = true;
     var setCtx = true;
     var setCtxCount = 0;
     var str = "";
@@ -39,6 +39,7 @@ $(document).ready(function(){
             "images/tznk_mochi/4.png",
             "images/tznk_mochi/5.png"
         ],
+        /*
         [
             "images/fanfic_1.png",
             "images/fanfic_2.png",
@@ -54,23 +55,40 @@ $(document).ready(function(){
             "images/fanfic_4.png",
             "images/fanfic_5.png",
             "images/fanfic_6.png"
-        ],
+        ],*/
     ];
-    /*
-    var srcList = [
-        "images/zzm_mochi01_tmp.png",
-        "images/zzm_mochi02_tmp.png",
-        "images/zzm_mochi03_tmp.png",
-        "images/zzm_mochi04_tmp.png",
-        "images/zzm_mochi05_tmp.png"
+    var fontList = [
+        "mini-wakuwaku",
+        "Roboto",
+        "明朝体"
     ];
-    */
     
     /*初期化*/
     function init(){
+        var fonts = $("#fonts");
+        for(var i = 0; i < fontList.length; i++){
+            fonts.append($("<option>").val(i).text(fontList[i]));
+        }
         
+        var fontSize = $("#font-size");
+        for(var i = 1; i < 51; i++){
+            fontSize.append($("<option>").val(i).text(i));
+        }
     }
     
+    /*update*/
+    function update(){
+        loadImage();
+    }
+    
+    /*canvasクリック時、imageを変える*/
+    function changeImage(){
+        var imageNumber = debug;
+        while(imageNumber == debug){
+            imageNumber = Math.floor(Math.random() * srcList.length);
+        }
+        debug = imageNumber;
+    }
     
     /*canvasのサイズを動的に変える*/
     function autoSizeChange(){
@@ -87,6 +105,7 @@ $(document).ready(function(){
     
     /* 表示する画像をimgList配列に代入していく */
     function loadImage(){
+        imgList.length = 0;
         for(var i = 0; i < srcList[debug].length; i++){
             imgList[i] = new Image();
             imgList[i].onload = handleLoad;
@@ -148,6 +167,19 @@ $(document).ready(function(){
         }
     }
     
+    $('canvas').click(function(){
+        if(isChangeImage == true){
+            changeImage();
+            update();
+            isChangeImage = false;
+            console.log(debug);
+            setTimeout(okChangeImage, 1000);
+        }
+    });
+    
+    function okChangeImage(){
+        isChangeImage = true;
+    }
     
     /* gif生成ボタンを押したらgifを生成する準備をする */
     $('#btn').click(function(){
@@ -161,6 +193,9 @@ $(document).ready(function(){
         encoder.start();
     });
     
+    $('#download').click(function(){
+         encoder.download("mcac.gif");
+    });
     canvasRest();
     loadImage();
     
