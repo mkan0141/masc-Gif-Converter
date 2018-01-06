@@ -20,7 +20,10 @@ canvas{
 
 #view{
     padding-top: 30px;
-    padding-bottom: 30px;
+}
+
+#char{
+    margin-top: 30px;
 }
 
 #btn{
