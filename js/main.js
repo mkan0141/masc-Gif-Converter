@@ -3,6 +3,7 @@ $(document).ready(function(){
     var encoder = new GIFEncoder();
     
     var isChangeImage = true;
+    var isImageLoad = false;
     var setCtx = true;
     var setCtxCount = 0;
     var str = "";
@@ -35,8 +36,7 @@ $(document).ready(function(){
             "images/tznk_mochi/1.png",
             "images/tznk_mochi/2.png",
             "images/tznk_mochi/3.png",
-            "images/tznk_mochi/4.png",
-            "images/tznk_mochi/5.png"
+            "images/tznk_mochi/4.png"
         ],
         [
             "images/krtn_zzz/1.png",
@@ -48,6 +48,10 @@ $(document).ready(function(){
             "images/anz_smile/1.png",
             "images/anz_smile/3.png",
             "images/anz_smile/5.png"
+        ],
+        [
+            "images/prnm_smile/1.png",
+            "images/prnm_smile/2.png"
         ]
     ];
     var fontList = [
@@ -59,8 +63,9 @@ $(document).ready(function(){
     /*初期化*/
     function init(){
         
-        document.getElementById("char").value = "エナジードリンク";
+        document.getElementById("char").value = "ニャーン";
         document.getElementById("btn").disable = "disable";
+        debug = Math.floor(Math.random() * srcList.length);
         /*  フォント、フォントサイズを変更したいよね〜(未実装)
         var fonts = $("#fonts");
         for(var i = 0; i < fontList.length; i++){
@@ -112,7 +117,7 @@ $(document).ready(function(){
         }
         console.log("image load correct")
         function handleLoad(){
-            if((++count) == 1){
+            if((++count) == srcList[debug].length - 1){
                 draw();
             }
         }
@@ -150,7 +155,7 @@ $(document).ready(function(){
             }
             setCtxCount++;
         }
-        
+        if(i == imgList.length - 1)isImageLoad = true;
         setTimeout(draw, 400);
     }
     
@@ -167,12 +172,13 @@ $(document).ready(function(){
     }
     
     $('canvas').click(function(){
-        if(isChangeImage == true){
+        if(isChangeImage == true && isImageLoad == true){
             changeImage();
             update();
+            isImageLoad = false;
             isChangeImage = false;
             console.log(debug);
-            setTimeout(okChangeImage, 1000);
+            setTimeout(okChangeImage, 1500);
         }
     });
     
