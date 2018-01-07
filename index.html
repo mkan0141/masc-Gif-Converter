@@ -6,6 +6,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+        <link href="https://fonts.googleapis.com/earlyaccess/kokoro.css" rel="stylesheet">
         <link rel="stylesheet" href="//code.jquery.com/ui/1.10.3/themes/cupertino/jquery-ui.min.css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
@@ -46,6 +47,18 @@
             
             入力欄: <input id="char" placeholder="文字を入力してね">
             <p>(漢字、半角カナは使えません...)</p>
+            <div class="row">
+                <div class="col-md-6 col-md-offset-4">
+                    <div class="col-md-5 form-group select-group">
+                        <label>フォント</label>
+                        <select class="form-control" id="fonts" name="number"></select>
+                    </div>
+                    <div class="col-md-5 form-group select-group">
+                        <label>フォントサイズ</label>
+                        <select class="form-control" id="font-size" name="number"></select>
+                    </div>
+                </div>
+            </div>
             <button type="button" class="btn btn-success" id="btn">gif生成</button>
             <img id="image" src="images/default.png">
             <p></p>
