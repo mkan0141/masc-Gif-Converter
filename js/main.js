@@ -57,12 +57,13 @@ $(document).ready(function(){
     var fontList = [
         "mini-wakuwaku",
         "Roboto",
-        "Kokoro"
+        "Kokoro",
+        "Sawarabi Mincho",
+        "Mplus 1p"
     ];
     
     /*初期化*/
     function init(){
-        
         document.getElementById("char").value = "ニャーン";
         document.getElementById("btn").disable = "disable";
         debug = Math.floor(Math.random() * srcList.length);
@@ -70,12 +71,6 @@ $(document).ready(function(){
         for(var i = 0; i < fontList.length; i++){
             fonts.append($("<option>").val(fontList[i]).text(fontList[i]));
         }
-        
-        var fontSize = $("#font-size");
-        for(var i = 1; i < 51; i++){
-            fontSize.append($("<option>").val(i).text(i));
-        }
-        
     }
     
     /*update*/

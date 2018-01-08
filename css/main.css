@@ -18,6 +18,14 @@ canvas{
     text-align: center;
 }
 
+select{
+    display: inline;
+}
+
+.select-group{
+    margin-top: 30px;
+}
+
 #view{
     padding-top: 30px;
 }
