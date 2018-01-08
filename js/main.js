@@ -57,26 +57,20 @@ $(document).ready(function(){
     var fontList = [
         "mini-wakuwaku",
         "Roboto",
-        "明朝体"
+        "Kokoro",
+        "Sawarabi Mincho",
+        "Mplus 1p"
     ];
     
     /*初期化*/
     function init(){
-        
         document.getElementById("char").value = "ニャーン";
         document.getElementById("btn").disable = "disable";
         debug = Math.floor(Math.random() * srcList.length);
-        /*  フォント、フォントサイズを変更したいよね〜(未実装)
         var fonts = $("#fonts");
         for(var i = 0; i < fontList.length; i++){
-            fonts.append($("<option>").val(i).text(fontList[i]));
+            fonts.append($("<option>").val(fontList[i]).text(fontList[i]));
         }
-        
-        var fontSize = $("#font-size");
-        for(var i = 1; i < 51; i++){
-            fontSize.append($("<option>").val(i).text(i));
-        }
-        */
     }
     
     /*update*/
@@ -162,7 +156,8 @@ $(document).ready(function(){
     function drawString(){
         str = document.getElementById("char").value;
         ctx.fillStyle = 'rgb(0, 0, 0)';
-        ctx.font = "50px 'mini-wakuwaku'";
+        ctx.font = "50px '" + document.getElementById("fonts").value + "'";
+//        console.log("50px '" + document.getElementById("fonts").value + "'");
         // console.log(ctx.fontSize);
         var StringWidth = str.length * 50 + 10 * (str.length - 1);
         // console.log(StringWidth);
